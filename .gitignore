@@ -1,0 +1,11 @@
+*~
+.cache
+node_modules
+*.log
+logs
+node_modules
+dist
+.idea
+.vscode
+.DS_Store
+

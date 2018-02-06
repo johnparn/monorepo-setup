@@ -1,0 +1,41 @@
+{
+  "devDependencies": {
+    "@storybook/react": "^3.3.12",
+    "jest": "^22.1.4",
+    "lerna": "^2.8.0",
+    "codecov": "^3.0.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "prettier-eslint-cli": "^4.7.0"    
+  },
+  "dependencies": {
+  },
+  "jest": {
+    "rootDir": "packages",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
+  "scripts": {
+    "start": "NODE_ENV=development start-storybook -p 9001 -c .storybook",
+    "test": "jest",
+    "buildall": "lerna exec --parallel -- babel src -d dist --ignore spec.js,story.js",
+    "postinstall": "lerna bootstrap",
+    "coverage": "codecov",
+    "clean": "lerna clean",
+    "dev": "jest --watch",
+    "updated": "lerna updated",
+    "publish": "lerna publish --exact",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "jest --findRelatedTests",
+      "git add"
+    ]
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
