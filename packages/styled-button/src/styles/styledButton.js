@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
+// Create style for button
 export default styled.button`
   font-size: 1em;
   margin: 1em;
