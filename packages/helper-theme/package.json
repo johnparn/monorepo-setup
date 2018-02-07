@@ -1,0 +1,7 @@
+{
+  "name": "helper-theme",
+  "version": "0.0.1",
+  "description": "Theme",
+  "main": "dist/index.js",
+  "module": "src/index.js"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "styledbutton",
+  "version": "0.0.1",
+  "description": "Test styled button component",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "dependencies": {
+    "helper-theme": "^0.0.1",
+    "react": "^16.2.0",
+    "styled-components": "^3.1.6"
+  }
+}

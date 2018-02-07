@@ -1,19 +1,60 @@
 {
   "devDependencies": {
     "@storybook/react": "^3.3.12",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-es2016": "^6.24.1",
+    "codecov": "^3.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "glob-loader": "^0.3.0",
+    "husky": "^0.14.3",
     "jest": "^22.1.4",
     "lerna": "^2.8.0",
-    "codecov": "^3.0.0",
-    "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
-    "prettier-eslint-cli": "^4.7.0"    
+    "prettier-eslint-cli": "^4.7.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "dependencies": {
   },
   "jest": {
-    "rootDir": "packages",
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "resetMocks": true,
+    "resetModules": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "packages/**/*.js",
+      "!packages/coverage/**",
+      "!packages/**/dist/**",
+      "!storybook/**",
+      "!**/node_modules/**",
+      "!**/*.story.js",
+      "!**/*.spec.js",
+      "!**/*.test.js"      
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/coverage/",
+      "<rootDir>/.storybook/"      
+    ],
+    "testMatch": [
+      "**/?(*.)(spec).js?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
   },
   "scripts": {
     "start": "NODE_ENV=development start-storybook -p 9001 -c .storybook",
