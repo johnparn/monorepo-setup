@@ -1,6 +1,6 @@
 const theme = {
   primary: "#EA1E31",
-  secondary: "blue"
+  secondary: "#6699CC"
 };
 
 export default theme;

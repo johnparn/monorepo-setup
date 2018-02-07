@@ -1,15 +1,15 @@
 import React from "react";
 import { mount, render } from "enzyme";
 
-import sbabTheme from "./";
+import CustomTheme from "./";
 
-describe("SBAB Theme", function() {
+describe("Custom Theme", function() {
   it("exports the theme object", () => {
     const expected = expect.objectContaining({
       primary: expect.any(String),
       secondary: expect.any(String)
     });
 
-    expect(sbabTheme).toEqual(expected);
+    expect(CustomTheme).toEqual(expected);
   });
 });

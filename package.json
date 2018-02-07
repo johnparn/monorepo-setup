@@ -16,8 +16,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "jest": {
     "resetMocks": true,
     "resetModules": true,
@@ -30,7 +29,7 @@
       "!**/node_modules/**",
       "!**/*.story.js",
       "!**/*.spec.js",
-      "!**/*.test.js"      
+      "!**/*.test.js"
     ],
     "coverageThreshold": {
       "global": {
@@ -46,14 +45,16 @@
     ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/node_modules/",
-      "<rootDir>/coverage/",
-      "<rootDir>/.storybook/"      
+      "<rootDir>/packages/coverage/",
+      "<rootDir>/.storybook/"
     ],
     "testMatch": [
       "**/?(*.)(spec).js?(x)"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/",
+      "<rootDir>/packages/coverage/",
+      "<rootDir>/storybook/"
     ]
   },
   "scripts": {
@@ -65,8 +66,7 @@
     "clean": "lerna clean",
     "dev": "jest --watch",
     "updated": "lerna updated",
-    "publish": "lerna publish --exact",
-    "precommit": "lint-staged"
+    "publish": "lerna publish --exact"
   },
   "lint-staged": {
     "*.js": [
@@ -75,6 +75,11 @@
       "git add"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run --concurrency 1 --stream precommit"
+    }
+  },  
   "private": true,
   "workspaces": [
     "packages/*"
