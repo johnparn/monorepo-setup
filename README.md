@@ -10,7 +10,8 @@ Go to root folder and do `yarn`.
 
 ## Start storybook
 
-`yarn start`
+`yarn start` and then open http://localhost:9001 in your browser.
+
 
 ## Run tests
 
