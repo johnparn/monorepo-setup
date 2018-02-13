@@ -1,0 +1,18 @@
+.icon {
+    display: inline-flex;
+    background: transparent;
+}
+
+.icon .filetype {
+   
+}
+
+.icon .sbab-logo {
+    padding: 0 0.4em 0.75em 1.6em;
+}
+
+.icon .generic {
+    font-size: 0.4em;
+    font-weight: 600;
+    font-family: 'helvetica neue', arial, sans-serif;
+}

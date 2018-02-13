@@ -9,4 +9,4 @@ dist
 .vscode
 .DS_Store
 coverage
-
+__diff_output__

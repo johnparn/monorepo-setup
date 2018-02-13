@@ -3,69 +3,42 @@
     "@storybook/react": "^3.3.12",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "babel-preset-es2016": "^6.24.1",
-    "codecov": "^3.0.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "glob-loader": "^0.3.0",
+    "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
     "jest": "^22.1.4",
+    "jest-image-snapshot": "^2.3.0",
+    "jsdom": "^11.6.2",
+    "jsdom-global": "^3.0.2",
     "lerna": "^2.8.0",
     "lint-staged": "^6.1.0",
+    "navalia": "^1.2.0",
     "prettier-eslint-cli": "^4.7.0",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-svg-loader": "^2.1.0",
+    "webpack-hot-middleware": "^2.21.0"
   },
   "dependencies": {},
-  "jest": {
-    "resetMocks": true,
-    "resetModules": true,
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "packages/**/*.js",
-      "!packages/coverage/**",
-      "!packages/**/dist/**",
-      "!storybook/**",
-      "!**/node_modules/**",
-      "!**/*.story.js",
-      "!**/*.spec.js",
-      "!**/*.test.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 95,
-        "functions": 95
-      }
-    },
-    "coverageReporters": [
-      "lcov",
-      "html"
-    ],
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/packages/coverage/",
-      "<rootDir>/.storybook/"
-    ],
-    "testMatch": [
-      "**/?(*.)(spec).js?(x)"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/packages/coverage/",
-      "<rootDir>/storybook/"
-    ]
-  },
   "scripts": {
-    "start": "NODE_ENV=development start-storybook -p 9001 -c .storybook",
-    "test": "jest",
-    "buildall": "lerna exec --parallel -- babel src -d dist --ignore spec.js,story.js",
-    "postinstall": "lerna bootstrap",
-    "coverage": "codecov",
+    "start": "",
+    "storybook": "NODE_ENV=development start-storybook -p 9001 -c .storybook",
+    "test": "jest --env=jsdom",
+    "e2e": "jest --env=jsdom --config jest.config-e2e.js",
+    "build-all": "lerna exec --parallel -- babel src -d dist --ignore spec.js,story.js",
+    "post-install": "lerna bootstrap",
     "clean": "lerna clean",
-    "dev": "jest --watch",
+    "test-watch": "jest --watch",
     "updated": "lerna updated",
     "publish": "lerna publish --exact",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "build-web": " webpack -p --config webpack.config.js --progress --profile --colors",
+    "dev": "webpack-dev-server --port 3000 --hot --inline"
   },
   "lint-staged": {
     "*.js": [
@@ -78,9 +51,10 @@
     "hooks": {
       "pre-commit": "lerna run --concurrency 1 --stream precommit"
     }
-  },  
+  },
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "web"
   ]
 }

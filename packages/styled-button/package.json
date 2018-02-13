@@ -1,5 +1,5 @@
 {
-  "name": "styledbutton",
+  "name": "styled-button",
   "version": "0.0.1",
   "description": "Test styled button component",
   "main": "dist/index.js",

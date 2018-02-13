@@ -1,0 +1,11 @@
+{
+  "name": "sbab-icons",
+  "author": "John",
+  "version": "0.0.1",
+  "description": "Icons for SBAB",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "dependencies": {
+    "react": "^16.2.0"
+  }
+}
